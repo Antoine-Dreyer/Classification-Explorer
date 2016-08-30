@@ -6,7 +6,8 @@ const {
   classificationLevels,
   classificationCorrespondences,
   levelItems,
-  correspondenceDefinitions
+  correspondenceDefinitions,
+  searchInstances
 } = queries
 
 export default {
@@ -84,5 +85,15 @@ export default {
     },
     whatWeGet: 'definitions',
     queryBuilder: correspondenceDefinitions
+  },
+  searchInstances: {
+    params: [{
+      name: 'keyword'
+    }],
+    results: {
+      s: 'matching instances (array?)'
+    },
+    whatWeGet: 'results',
+    queryBuilder: searchInstances
   }
 }

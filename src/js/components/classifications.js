@@ -3,12 +3,13 @@ import { switchViewClassificationDetails } from '../actions/app-state'
 import { sparqlConnect } from '../sparql/configure-sparql'
 import { LOADING, LOADED, FAILED } from 'sparql-connect'
 import { connect } from 'react-redux'
+import Search from './search'
 
 function Classifications({ loaded, classifications,
     switchViewClassificationDetails }) {
   if (loaded !== LOADED) return <span>loading</span>
   //we could also write something like
-  //if (loaded === FAILED) 
+  //if (loaded === FAILED)
   //  return <span>error while retrieving clasifications/span>
   return (
     <div>
@@ -22,6 +23,8 @@ function Classifications({ loaded, classifications,
             </li>
           )}
       </ul>
+      <br/>
+      <Search />
     </div>
   )
 }

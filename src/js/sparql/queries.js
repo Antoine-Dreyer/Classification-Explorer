@@ -67,11 +67,20 @@ const correspondenceDefinitions = correspondence => `
     <${correspondence}> skos:notation ?code ; skos:definition ?definition ;
   }
 `
+
+const searchInstances = keyword => `
+  PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+  PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
+  SELECT DISTINCT ?s ?score WHERE { ?s ?p ?l. ?l <tag:stardog:api:property:textMatch> '${keyword}'.
+  }
+`
+
 export default {
   classifications,
   classificationDetails,
   classificationLevels,
   classificationCorrespondences,
   levelItems,
-  correspondenceDefinitions
+  correspondenceDefinitions,
+  searchInstances
 }
